@@ -14,6 +14,21 @@ if (checkReplace !== null) {
 // User Scroll For Navbar
 function userScroll() {
   const navbar = document.querySelector(".navbar");
+  // Get all the Navbar links
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Function to close the collapsed menu
+  function closeNavbar() {
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    if (navbarCollapse.classList.contains("show")) {
+      navbarCollapse.classList.remove("show");
+    }
+  }
+
+  // Add click event listeners to all the Navbar links
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", closeNavbar);
+  });
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
